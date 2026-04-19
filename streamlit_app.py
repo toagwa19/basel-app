@@ -685,7 +685,7 @@ with st.sidebar:
     ])
     st.divider()
     st.caption("Powered by Fixstars Amplify AE")
-    st.caption("© BIPROGY Inc.")
+    st.caption("© TECHROGY Inc.")
 
 
 # ══════════════════════════════════════════════════════════════════════════════
@@ -2156,4 +2156,4 @@ elif page == "📊 Basel リスクレポート":
 > 法務・コンプライアンス部門による確認が必要です。本資料は意思決定支援情報であり、
 > 規制上の資本計算書類として使用することはできません。
 """)
-    st.caption("© BIPROGY Inc. — Basel CRM リスクアセット最適化ソリューション")
+    st.caption("© TECHROGY Inc. — Basel CRM リスクアセット最適化ソリューション")
