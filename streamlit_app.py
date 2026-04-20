@@ -1,7 +1,6 @@
 ###############################################################################
 #  Basel CRM リスクアセット最適化デモ
 #  SA-CCR × RWA最小化 × 量子アニーリング × 古典最適化比較
-#  Powered by Fixstars Amplify AE
 ###############################################################################
 import streamlit as st
 import numpy as np
@@ -15,7 +14,7 @@ warnings.simplefilter("ignore")
 
 # ── Amplify ──────────────────────────────────────────────────────────────────
 from amplify import BinarySymbolGenerator, Model, FixstarsClient, solve
-from amplify import sum as asum
+from amplify import sum as asumhttps://github.com/toagwa19/basel-app/blob/main/streamlit_app.py
 
 # ── Classical optimization ────────────────────────────────────────────────────
 from scipy.optimize import linprog
@@ -258,7 +257,7 @@ def eval_solution(df: pd.DataFrame, selected: list, rev_target: float,
 # 最適化アルゴリズム
 # ══════════════════════════════════════════════════════════════════════════════
 
-# ── ① 量子アニーリング（Fixstars Amplify AE） ─────────────────────────────────
+# ── ① 量子アニーリング ─────────────────────────────────
 def run_quantum(df: pd.DataFrame, K: int, rev_target: float,
                 token: str, timeout_sec: int = 5) -> dict:
     """
@@ -670,7 +669,7 @@ with st.sidebar:
     st.markdown("## 🏦 Basel CRM 最適化")
     st.markdown("**RWA最小化 × 量子優位性検証**")
     st.divider()
-    st.markdown("#### Fixstars Amplify トークン")
+    st.markdown("#### APIトークン")
     tok = st.text_input("トークンを入力", value=st.session_state.amplify_token,
                         type="password", label_visibility="collapsed")
     if tok:
@@ -684,7 +683,6 @@ with st.sidebar:
         "📊 Basel リスクレポート",
     ])
     st.divider()
-    st.caption("Powered by Fixstars Amplify AE")
     st.caption("© TECHROGY Inc.")
 
 
@@ -700,7 +698,7 @@ if page == "🏠 システム概要":
     for col,title,val,sub in [
         (c1,"対応取引数","最大200件","SA-CCRベースEAD"),
         (c2,"最適化目標","RWA最小化","収益・集中度制約付き"),
-        (c3,"量子エンジン","Amplify AE","Fixstars量子アニーリング"),
+        (c3,"量子エンジン","Amplify AE","量子アニーリング"),
         (c4,"古典比較手法","3手法","貪欲法/LP緩和/焼きなまし"),
     ]:
         col.markdown(f"""<div class="kpi-card">
@@ -933,7 +931,7 @@ elif page == "⚛️  最適化実行（量子＋古典）":
         # ④ 量子アニーリング
         token = st.session_state.amplify_token
         if token:
-            status.info("⚛️ Step 4/4: Fixstars Amplify AE で量子アニーリング実行中（最大30秒）...")
+            status.info("⚛️ Step 4/4: 量子アニーリング実行中（最大30秒）...")
             r_q = run_quantum(df, K, rev_tgt, token, timeout_sec=1)
             if r_q["error"]:
                 st.warning(f"量子AE警告: {r_q['error']} → SA解をコピーして代替")
@@ -2151,7 +2149,7 @@ elif page == "📊 Basel リスクレポート":
     st.divider()
     st.markdown("""
 > 📌 **免責事項**
-> 本レポートはFixstars Amplify AE量子アニーリングによる最適化結果をもとに生成したデモ帳票です。
+> 本レポートは量子アニーリングによる最適化結果をもとに生成したデモ帳票です。
 > 実際の規制報告（金融庁、BCBS様式）への利用には、金融庁認可手法による正式計算および
 > 法務・コンプライアンス部門による確認が必要です。本資料は意思決定支援情報であり、
 > 規制上の資本計算書類として使用することはできません。
