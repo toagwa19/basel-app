@@ -14,7 +14,7 @@ warnings.simplefilter("ignore")
 
 # ── Amplify ──────────────────────────────────────────────────────────────────
 from amplify import BinarySymbolGenerator, Model, FixstarsClient, solve
-from amplify import sum as asumhttps://github.com/toagwa19/basel-app/blob/main/streamlit_app.py
+from amplify import sum as asum
 
 # ── Classical optimization ────────────────────────────────────────────────────
 from scipy.optimize import linprog
